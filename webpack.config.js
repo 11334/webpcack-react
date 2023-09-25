@@ -5,13 +5,27 @@ module.exports = {
     entry: {
         // index.js 导入 str.js
         // one.js 导入two.js
-        index:"./src/index.js",
-        one:"./src/one.js"
+        index: "./src/index.js",
+        one: "./src/one.js"
     },
     output: {
         // __dirname 就是E:\myweb\面试\webpack\reactdemo
-        path:path.resolve(__dirname,"dist"),
-        filename:'[name].main.js'
+        path: path.resolve(__dirname, "dist"),
+        filename: '[name].main.js'
     },
-    mode: 'production'
+    mode: 'production',
+    module: {
+        rules: [
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react']
+                    }
+                }
+            }
+        ]
+    }
 }

@@ -1,4 +1,5 @@
-import Two from './two'
-const x = 100;
-console.log(x);
-alert(Two.y);
+import Two from './two.js'
+const test = (num) => {
+    console.log("测试箭头函数 @babel/preset-env" + num);
+}
+test(Two.y);

@@ -1,4 +1,7 @@
-import Str from './str'
-const app=document.getElementById("app");
-const h3='<h3>首页哈哈哈</h3>';
-app.innerHTML=h3+Str.link;
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+ReactDOM.render(
+<App/>,
+document.getElementById("app")
+)
