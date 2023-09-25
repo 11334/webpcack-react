@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 
 const path = require('path')
@@ -16,7 +16,8 @@ module.exports = {
     output: {
         // __dirname 就是E:\myweb\面试\webpack\reactdemo
         path: path.resolve(__dirname, "dist"),
-        filename: '[name]_[contenthash].main.js'
+        filename: "js/[name]_[contenthash].main.js"
+
     },
     mode: 'production',
     module: {
@@ -76,7 +77,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
-            filename: '[name]-[hash].css',
+            filename: 'css/[name]-[contenthush].css',
             chunkFilename: '[id].css',
         }),
         new CleanWebpackPlugin()
