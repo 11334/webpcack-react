@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log('<a href="http://www.baidu.com">百度aaa</a><h3>导入str.js的超链接时的</h3>')})();
