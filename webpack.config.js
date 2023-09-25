@@ -11,7 +11,7 @@ module.exports = {
     output: {
         // __dirname 就是E:\myweb\面试\webpack\reactdemo
         path: path.resolve(__dirname, "dist"),
-        filename: '[name].main.js'
+        filename: '[name]_[contenthash].main.js'
     },
     mode: 'production',
     module: {
