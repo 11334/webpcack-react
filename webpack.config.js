@@ -55,7 +55,21 @@ module.exports = {
                 }, {
                     loader: 'sass-loader' // compiles sass to CSS
                 }]
-            }
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            publicPath: './../img',  //该属性指明我们最终引用的文件路径（打包生成的index.html文件里面引用资源的前缀）
+                            outputPath: 'img/'  //图片复制到的文件夹
+                        },
+                    },
+                ],
+            },
+
 
 
         ]
