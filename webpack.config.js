@@ -32,6 +32,16 @@ module.exports = {
                 test: /\.css$/,//要监控的文件
                 use: ['style-loader', 'css-loader'],//横着写的先调后面的再调前面的，先把css通过import引入然后再去找多个import把多个css文件合成一个再交给style-loader,style-loader把他们转换成js然后打包进去
             },
+            {
+                test: /\.less$/,
+                use: [{
+                    loader: 'style-loader' // creates style nodes from JS strings
+                }, {
+                    loader: 'css-loader' // translates CSS into CommonJS
+                }, {
+                    loader: 'less-loader' // compiles Less to CSS
+                }]
+            }
 
         ]
     },
