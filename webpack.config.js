@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 const path = require('path')
 // webpack.config.js
 module.exports = {
@@ -28,6 +30,22 @@ module.exports = {
             }
         ]
     },
-    devtool:"source-map",
+    plugins: [
+        //配置多个应用
+        new HtmlWebpackPlugin({ //假设是前台应用入口
+            title: '首页',
+            filename: "index.html",
+            template: "./public/index.html",
+            chunks: ["index"]    //chunks指定需要引入的入口模块的键名 index:"./src/index.js"
+        }),
+        new HtmlWebpackPlugin({//假设是后台应用入口one:"./src/one.js"
+            title: 'One',
+            filename: "one.html",
+            template: "./public/one.html",
+            chunks: ["one"] //chunks指定需要引入的入口模块的键名 one:"./src/one.js"
+        })
+    ],
+        
+    devtool: "source-map",
 
 }
