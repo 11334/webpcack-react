@@ -83,4 +83,28 @@ module.exports = {
 
     devtool: "source-map",
 
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'dist'),
+            // 1. directory: 配置静态文件目录为 dist 目录。
+            // 2. __dirname 为当前文件所在目录的全路径。
+            // 3. path.join 拼接目录,这里得到的是项目根目录/dist。
+            // 4. 所以该配置表示,以项目根目录下的 dist 文件夹作为静态文件目录。
+        },
+        // contentBase: path.join(__dirname, 'dist'), 已经被废弃啦
+        compress: true,//会 gzip(压缩) 和 serve(服务) 所有来自项目根路径下 dist/ 目录的文件
+        port: 8080,
+        proxy: {
+            "/data": { //地址
+                "target": "https://www.baidu.com/", //接口地址,跨域访问
+                secure: false,// 如果是https接口，需要配置这个参数
+                "changeOrigin": true,//开启跨域
+                "pathRewrite": { "^/data": "" }
+                //^/data - 匹配所有以 /data 开头的请求路径 "" - 
+                // 将匹配到的 /data 前缀部分用空字符串 "" 替换
+            }
+        }
+    }
+
+
 }
