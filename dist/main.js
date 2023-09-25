@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log('<a href="http://www.baidu.com">百度aaa</a><h3>导入str.js的超链接时的</h3>')})();
+(()=>{"use strict";document.getElementById("app").innerHTML='<h3>首页哈哈哈</h3><a href="http://www.tmall.com">天猫</a>'})();
